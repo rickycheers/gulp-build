@@ -1,0 +1,19 @@
+{
+  "name": "Dummy App",
+  "version": "0.0.0",
+  "homepage": "https://github.com/rickycheers/gulp-build",
+  "authors": [],
+  "description": "App just for testing purposes",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "angular": "~1.4"
+  }
+}
