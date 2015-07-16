@@ -19,10 +19,7 @@ gulp.task('partials', function () {
       spare: true,
       quotes: true
     }))
-    .pipe($.angularTemplatecache('templateCacheHtml.js', {
-      root: 'app',
-      module: 'FasoLite'
-    }))
+    .pipe($.angularTemplatecache('templateCacheHtml.js', conf.angularTemplateCache))
     .pipe(gulp.dest(conf.paths.tmp + '/partials/'));
 });
 

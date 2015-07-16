@@ -26,6 +26,11 @@ exports.wiredep = {
   directory: 'bower_components'
 };
 
+exports.angularTemplateCache = {
+  root: 'app',
+  module: 'FasoLite'
+};
+
 /**
  *  Common implementation for an error handler of a Gulp plugin
  */
