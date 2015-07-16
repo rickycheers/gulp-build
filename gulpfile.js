@@ -1,27 +1,23 @@
-var gulp    = require('gulp'),
-	wiredep = require('wiredep'),
-	inject  = require('gulp-inject'),
-	watch   = require('gulp-watch');
+'use strict';
 
-gulp.task('default', function () {
+var gulp   = require('gulp');
+var wrench = require('wrench');
 
-	wiredep({
-	    src: './index.html',
-	    directory: './bower_components/',
-	    bowerJson: require('./bower.json')
-	  });
+/**
+ *  This will load all js or coffee files in the gulp directory
+ *  in order to load all gulp tasks
+ */
+wrench.readdirSyncRecursive('./gulp').filter(function(file) {
+	return (/\.(js|coffee)$/i).test(file);
+}).map(function(file) {
+	require('./gulp/' + file);
+});
 
-	var target = gulp.src('./index.html');
-	var sources = gulp.src(
-		[
-			'./app/**/*.js',
-			'normalize.min.css',
-			'./app/**/*.css'
-		], 
-		{
-			read: false
-		}
-	); 
-	target.pipe(inject(sources, {relative: 1})).pipe(gulp.dest('./'));
 
+/**
+ *  Default task clean temporaries directories and launch the
+ *  main optimization build task
+ */
+gulp.task('default', ['clean'], function () {
+	gulp.start('build');
 });
